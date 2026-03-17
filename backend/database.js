@@ -1,34 +1,48 @@
-// Simple JSON file database — no native modules needed
-const fs   = require('fs');
-const path = require('path');
+const mysql = require('mysql2/promise');
 
-const DB_FILE = path.join(__dirname, 'finstatech.json');
+// Railway provides MYSQL_URL, locally we fall back to the JSON file approach
+const pool = mysql.createPool({
+  uri: process.env.MYSQL_URL,
+  ssl: { rejectUnauthorized: false },
+  waitForConnections: true,
+  connectionLimit: 10
+});
 
-// Default empty database structure
-const DEFAULT = {
-  subscribers: [],
-  contacts:    [],
-  products:    []
-};
-
-// Load the database from disk (or create it fresh)
-function load() {
-  if (!fs.existsSync(DB_FILE)) {
-    fs.writeFileSync(DB_FILE, JSON.stringify(DEFAULT, null, 2));
-    return JSON.parse(JSON.stringify(DEFAULT));
-  }
-  return JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
+// Create tables if they don't exist
+async function init() {
+  await pool.execute(`
+    CREATE TABLE IF NOT EXISTS subscribers (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      name       VARCHAR(255) NOT NULL,
+      email      VARCHAR(255) NOT NULL UNIQUE,
+      deals      TINYINT(1) DEFAULT 1,
+      articles   TINYINT(1) DEFAULT 1,
+      refurb     TINYINT(1) DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+  await pool.execute(`
+    CREATE TABLE IF NOT EXISTS contacts (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      name       VARCHAR(255) NOT NULL,
+      email      VARCHAR(255) NOT NULL,
+      subject    VARCHAR(255),
+      message    TEXT NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+  await pool.execute(`
+    CREATE TABLE IF NOT EXISTS products (
+      id          INT AUTO_INCREMENT PRIMARY KEY,
+      name        VARCHAR(255) NOT NULL,
+      description TEXT,
+      price       DECIMAL(10,2) NOT NULL,
+      category    VARCHAR(100),
+      image_url   TEXT,
+      created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+  console.log('  ✅  Database tables ready.');
 }
 
-// Save the database back to disk
-function save(data) {
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
-}
-
-// Generate an auto-increment id for a collection
-function nextId(collection) {
-  if (collection.length === 0) return 1;
-  return Math.max(...collection.map(r => r.id)) + 1;
-}
-
-module.exports = { load, save, nextId };
+module.exports = { pool, init };
