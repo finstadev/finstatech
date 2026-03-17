@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINSTATECH — Admin</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0b0e11;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        /* ── Top bar ── */
+        .admin-header {
+            background: #1a1d23;
+            border-bottom: 2px solid #00df81;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .admin-header h1 {
+            font-size: 20px;
+            letter-spacing: 3px;
+            color: #fff;
+        }
+        .admin-header h1 span { color: #00df81; }
+        .admin-header small { color: #666; font-size: 12px; }
+
+        /* ── Layout ── */
+        .admin-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* ── Stats row ── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: #1a1d23;
+            border: 1px solid #2a2d33;
+            border-top: 3px solid #00df81;
+            padding: 24px;
+            border-radius: 4px;
+        }
+        .stat-card .stat-num {
+            font-size: 36px;
+            font-weight: 800;
+            color: #00df81;
+        }
+        .stat-card .stat-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ── Tabs ── */
+        .tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #2a2d33;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #666;
+            padding: 12px 24px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: color 0.2s;
+        }
+        .tab-btn.active {
+            color: #00df81;
+            border-bottom-color: #00df81;
+        }
+        .tab-btn:hover { color: #fff; }
+
+        /* ── Panels ── */
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ── Table ── */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .data-table th {
+            background: #1a1d23;
+            color: #666;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #2a2d33;
+        }
+        .data-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #16191f;
+            color: #ccc;
+            vertical-align: top;
+        }
+        .data-table tr:hover td { background: #13161b; }
+        .data-table .email-cell { color: #00df81; font-size: 12px; }
+        .data-table .date-cell  { color: #555; font-size: 11px; }
+        .data-table .msg-cell   { max-width: 260px; color: #999; font-size: 12px; line-height: 1.5; }
+
+        /* ── Delete button ── */
+        .del-btn {
+            background: none;
+            border: 1px solid #333;
+            color: #555;
+            padding: 4px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.2s;
+        }
+        .del-btn:hover { border-color: #e53e3e; color: #e53e3e; background: rgba(229,62,62,0.05); }
+
+        /* ── Add product form ── */
+        .add-form {
+            background: #1a1d23;
+            border: 1px solid #2a2d33;
+            padding: 28px;
+            border-radius: 4px;
+            margin-bottom: 32px;
+        }
+        .add-form h3 {
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .form-grid input, .form-grid select {
+            background: #0b0e11;
+            border: 1px solid #2a2d33;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 3px;
+            font-size: 13px;
+            width: 100%;
+        }
+        .form-grid input:focus, .form-grid select:focus {
+            outline: none;
+            border-color: #00df81;
+        }
+        .form-grid input::placeholder { color: #444; }
+        .form-full { grid-column: 1 / -1; }
+        .add-btn {
+            margin-top: 14px;
+            background: #00df81;
+            color: #0b0e11;
+            border: none;
+            padding: 11px 28px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: opacity 0.2s;
+        }
+        .add-btn:hover { opacity: 0.85; }
+
+        /* ── Tag badges ── */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .badge-on  { background: rgba(0,223,129,0.12); color: #00df81; }
+        .badge-off { background: rgba(255,255,255,0.05); color: #555; }
+
+        /* ── Empty state ── */
+        .empty {
+            text-align: center;
+            padding: 60px 0;
+            color: #444;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* ── Refresh btn ── */
+        .refresh-btn {
+            background: none;
+            border: 1px solid #2a2d33;
+            color: #666;
+            padding: 6px 14px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 3px;
+            float: right;
+            transition: all 0.2s;
+        }
+        .refresh-btn:hover { border-color: #00df81; color: #00df81; }
+    </style>
+</head>
+<body>
+
+<header class="admin-header">
+    <h1>FINSTA<span>TECH</span> &nbsp;/&nbsp; Admin</h1>
+    <small id="last-updated">Loading...</small>
+</header>
+
+<div class="admin-body">
+
+    <!-- Stats -->
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-num" id="count-subs">–</div>
+            <div class="stat-label">Subscribers</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num" id="count-msgs">–</div>
+            <div class="stat-label">Messages</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-num" id="count-prods">–</div>
+            <div class="stat-label">Products</div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('subscribers')">Subscribers</button>
+        <button class="tab-btn" onclick="showTab('messages')">Messages</button>
+        <button class="tab-btn" onclick="showTab('products')">Products</button>
+    </div>
+
+    <!-- Subscribers panel -->
+    <div class="tab-panel active" id="panel-subscribers">
+        <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+        <br><br>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Deals</th>
+                    <th>Articles</th>
+                    <th>Refurb</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody-subs"></tbody>
+        </table>
+    </div>
+
+    <!-- Messages panel -->
+    <div class="tab-panel" id="panel-messages">
+        <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+        <br><br>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody-msgs"></tbody>
+        </table>
+    </div>
+
+    <!-- Products panel -->
+    <div class="tab-panel" id="panel-products">
+
+        <div class="add-form">
+            <h3>Add New Product</h3>
+            <div class="form-grid">
+                <input type="text"   id="p-name"     placeholder="Product name" />
+                <input type="number" id="p-price"    placeholder="Price (e.g. 299.99)" step="0.01" />
+                <select id="p-category">
+                    <option value="">Select category...</option>
+                    <option value="Gaming PCs">Gaming PCs</option>
+                    <option value="Components">Components</option>
+                    <option value="Peripherals">Peripherals</option>
+                </select>
+                <input type="text" id="p-desc"      placeholder="Short description" />
+                <input type="text" id="p-image"     placeholder="Image URL (optional)" class="form-full" />
+            </div>
+            <button class="add-btn" onclick="addProduct()">+ Add Product</button>
+        </div>
+
+        <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+        <br><br>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody-prods"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+    const API = '/api';
+
+    const TAB_NAMES = ['subscribers', 'messages', 'products'];
+
+    function showTab(name) {
+        document.querySelectorAll('.tab-btn').forEach((b, i) => {
+            b.classList.toggle('active', TAB_NAMES[i] === name);
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => {
+            p.classList.toggle('active', p.id === 'panel-' + name);
+        });
+    }
+
+    function fmt(iso) {
+        if (!iso) return '—';
+        const d = new Date(iso);
+        return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function badge(val) {
+        return val
+            ? `<span class="badge badge-on">✓</span>`
+            : `<span class="badge badge-off">–</span>`;
+    }
+
+    async function loadAll() {
+        let subs, msgs, prods;
+        try {
+            [subs, msgs, prods] = await Promise.all([
+                fetch(`${API}/subscribers`).then(r => r.json()),
+                fetch(`${API}/contacts`).then(r => r.json()),
+                fetch(`${API}/products`).then(r => r.json()),
+            ]);
+        } catch {
+            document.getElementById('last-updated').textContent = '⚠ Server offline — run: node server.js';
+            return;
+        }
+
+        // Update stats
+        document.getElementById('count-subs').textContent  = subs.length;
+        document.getElementById('count-msgs').textContent  = msgs.length;
+        document.getElementById('count-prods').textContent = prods.length;
+        document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleTimeString();
+
+        // Subscribers table
+        document.getElementById('tbody-subs').innerHTML = subs.length === 0
+            ? `<tr><td colspan="8" class="empty">No subscribers yet.</td></tr>`
+            : subs.map(s => `
+                <tr>
+                    <td>${s.id}</td>
+                    <td>${s.name}</td>
+                    <td class="email-cell">${s.email}</td>
+                    <td>${badge(s.deals)}</td>
+                    <td>${badge(s.articles)}</td>
+                    <td>${badge(s.refurb)}</td>
+                    <td class="date-cell">${fmt(s.created_at)}</td>
+                    <td><button class="del-btn" onclick="deleteRecord('subscribers',${s.id})">Delete</button></td>
+                </tr>`).join('');
+
+        // Messages table
+        document.getElementById('tbody-msgs').innerHTML = msgs.length === 0
+            ? `<tr><td colspan="7" class="empty">No messages yet.</td></tr>`
+            : msgs.map(m => `
+                <tr>
+                    <td>${m.id}</td>
+                    <td>${m.name}</td>
+                    <td class="email-cell">${m.email}</td>
+                    <td>${m.subject || '—'}</td>
+                    <td class="msg-cell">${m.message}</td>
+                    <td class="date-cell">${fmt(m.created_at)}</td>
+                    <td><button class="del-btn" onclick="deleteRecord('contacts',${m.id})">Delete</button></td>
+                </tr>`).join('');
+
+        // Products table
+        document.getElementById('tbody-prods').innerHTML = prods.length === 0
+            ? `<tr><td colspan="7" class="empty">No products yet.</td></tr>`
+            : prods.map(p => `
+                <tr>
+                    <td>${p.id}</td>
+                    <td>${p.name}</td>
+                    <td>${p.category || '—'}</td>
+                    <td style="color:#00df81;font-weight:700;">$${parseFloat(p.price).toFixed(2)}</td>
+                    <td class="msg-cell">${p.description || '—'}</td>
+                    <td class="date-cell">${fmt(p.created_at)}</td>
+                    <td><button class="del-btn" onclick="deleteRecord('products',${p.id})">Delete</button></td>
+                </tr>`).join('');
+    }
+
+    async function deleteRecord(collection, id) {
+        await fetch(`${API}/${collection}/${id}`, { method: 'DELETE' });
+        loadAll();
+    }
+
+    async function addProduct() {
+        const name     = document.getElementById('p-name').value.trim();
+        const price    = document.getElementById('p-price').value;
+        const category = document.getElementById('p-category').value;
+        const desc     = document.getElementById('p-desc').value.trim();
+        const image    = document.getElementById('p-image').value.trim();
+
+        if (!name || !price) { alert('Name and price are required.'); return; }
+
+        await fetch(`${API}/products`, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ name, price, category, description: desc, image_url: image })
+        });
+
+        // Clear form
+        ['p-name','p-price','p-desc','p-image'].forEach(id => document.getElementById(id).value = '');
+        document.getElementById('p-category').value = '';
+
+        loadAll();
+    }
+
+    // Load on page open
+    loadAll();
+</script>
+
+</body>
+</html>

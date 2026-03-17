@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscríbete - FINSTATECH</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="finsta-header">
+    <div class="top-bar">
+        <div class="menu-label">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="text-menu" data-i18n="nav.menu">MENÚ</span>
+            <nav class="hamburger-dropdown">
+                <a href="index.html" data-i18n="nav.home">INICIO</a>
+                <a href="contacto.html" data-i18n="nav.contact">CONTACTO</a>
+                <a href="productos.html" data-i18n="nav.products">ARTÍCULOS</a>
+                <a href="suscribirte.html" data-i18n="nav.subscribe">SUSCRÍBETE</a>
+            </nav>
+        </div>
+        <div class="logo">
+            <a href="index.html">FINSTA<span>TECH</span></a>
+        </div>
+        <div class="actions">
+            <div class="socials">
+                <a href="https://www.instagram.com/alessandro_finstaaa" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.12z"/>
+                    </svg>
+                </a>
+            </div>
+            <span class="actions-sep"></span>
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langToggle" onclick="toggleLang()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span id="langCurrent">EN</span>
+                </button>
+                <div class="lang-dropdown-menu" id="langMenu">
+                    <button onclick="setLang('en')" data-lang="en">English</button>
+                    <button onclick="setLang('es')" data-lang="es">Español</button>
+                    <button onclick="setLang('de')" data-lang="de">Deutsch</button>
+                    <button onclick="setLang('it')" data-lang="it">Italiano</button>
+                    <button onclick="setLang('ko')" data-lang="ko">한국어</button>
+                </div>
+            </div>
+            <a href="suscribirte.html" class="sub-btn" data-i18n="nav.subscribe">SUSCRÍBETE</a>
+        </div>
+    </div>
+    <div class="ticker-bar">
+        <div class="ticker-track">
+            <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+            <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+        </div>
+    </div>
+</header>
+
+<main>
+
+    <!-- Hero Banner -->
+    <section class="sub-hero">
+        <div class="sub-hero-bg">
+            <span class="sub-bg-text">FINSTATECH</span>
+        </div>
+        <div class="sub-hero-content">
+            <span class="sub-hero-eyebrow" data-i18n="sub.eyebrow">MEMBRESÍA GRATUITA</span>
+            <h1 class="sub-hero-title" data-i18n-html="sub.hero.title">Acceso <span>exclusivo</span>.<br>Antes que nadie.</h1>
+            <p class="sub-hero-desc" data-i18n="sub.hero.desc">Sé el primero en enterarte de drops, ofertas usadas, y lanzamientos. La comunidad tech que no te va a spamear.</p>
+        </div>
+    </section>
+
+    <!-- Perks + Form -->
+    <section class="sub-body">
+        <div class="sub-body-inner">
+
+            <!-- Perks -->
+            <div class="sub-perks">
+                <h3 class="perks-title" data-i18n="sub.perks.title">¿Qué obtienes?</h3>
+                <ul class="perks-list">
+                    <li>
+                        <span class="perk-icon">▸</span>
+                        <div>
+                            <strong data-i18n="sub.p1.h">Deals exclusivos</strong>
+                            <p data-i18n="sub.p1.p">Acceso anticipado a ofertas de productos nuevos y usados antes de que se publiquen.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="perk-icon">▸</span>
+                        <div>
+                            <strong data-i18n="sub.p2.h">Guías y reviews</strong>
+                            <p data-i18n="sub.p2.p">Contenido técnico sin relleno — comparativas, builds recomendados y más.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="perk-icon">▸</span>
+                        <div>
+                            <strong data-i18n="sub.p3.h">Drops refurbished</strong>
+                            <p data-i18n="sub.p3.p">Te avisamos cuando llega stock refurbished antes de que se agote.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="perk-icon">▸</span>
+                        <div>
+                            <strong data-i18n="sub.p4.h">Sin spam. Nunca.</strong>
+                            <p data-i18n="sub.p4.p">Solo correos que valen la pena. Cancela cuando quieras, sin drama.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Form -->
+            <div class="sub-form-wrap">
+                <div class="sub-form-card">
+                    <h3 class="form-card-title" data-i18n="sub.form.title">Únete ahora</h3>
+                    <p class="form-card-sub" data-i18n="sub.form.sub">Es gratis. Siempre lo será.</p>
+                    <form class="subscribe-form" onsubmit="handleSubscribe(event);">
+                        <input type="text" id="sub-name" data-i18n-ph="sub.name.ph" placeholder="Tu nombre" class="sub-input" required />
+                        <input type="email" id="sub-email" data-i18n-ph="sub.email.ph" placeholder="Tu correo electrónico" class="sub-input" required />
+                        <div class="sub-options">
+                            <label class="sub-check">
+                                <input type="checkbox" id="chk-deals" checked />
+                                <span data-i18n="sub.chk1">Deals y ofertas</span>
+                            </label>
+                            <label class="sub-check">
+                                <input type="checkbox" id="chk-articles" checked />
+                                <span data-i18n="sub.chk2">Nuevos artículos</span>
+                            </label>
+                            <label class="sub-check">
+                                <input type="checkbox" id="chk-refurb" />
+                                <span data-i18n="sub.chk3">Refurbished drops</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="sub-submit" data-i18n="sub.btn">SUSCRIBIRME AHORA</button>
+                    </form>
+                    <p class="form-disclaimer" data-i18n="sub.disclaimer">Al suscribirte aceptas recibir correos de FINSTATECH. Puedes darte de baja en cualquier momento.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Social proof strip -->
+    <section class="sub-proof">
+        <div class="sub-proof-inner">
+            <div class="proof-stat">
+                <span class="proof-number">+4,200</span>
+                <span class="proof-label" data-i18n="sub.stat1">suscriptores activos</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-stat">
+                <span class="proof-number">2x</span>
+                <span class="proof-label" data-i18n="sub.stat2">emails por semana</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-stat">
+                <span class="proof-number">0</span>
+                <span class="proof-label" data-i18n="sub.stat3">spam. garantizado.</span>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="lang.js"></script>
+<script>
+    async function handleSubscribe(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('.sub-submit');
+
+        const name     = document.getElementById('sub-name').value;
+        const email    = document.getElementById('sub-email').value;
+        const deals    = document.getElementById('chk-deals').checked;
+        const articles = document.getElementById('chk-articles').checked;
+        const refurb   = document.getElementById('chk-refurb').checked;
+
+        btn.textContent = '...';
+        btn.disabled = true;
+
+        try {
+            const res  = await fetch('/api/subscribe', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ name, email, deals, articles, refurb })
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+                btn.textContent = (window.LANG && window.LANG['sub.success']) || '✓ SUBSCRIBED';
+                btn.style.background = '#fff';
+                btn.style.color = '#0b0e11';
+            } else {
+                btn.textContent = data.error || 'Error';
+                btn.style.background = '#e53e3e';
+                btn.style.color = '#fff';
+                btn.disabled = false;
+            }
+        } catch (err) {
+            btn.textContent = 'Server offline';
+            btn.style.background = '#e53e3e';
+            btn.style.color = '#fff';
+            btn.disabled = false;
+        }
+    }
+</script>
+
+</body>
+</html>

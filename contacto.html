@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - FINSTATECH</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="finsta-header">
+    <div class="top-bar">
+        <div class="menu-label">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="text-menu" data-i18n="nav.menu">MENÚ</span>
+            <nav class="hamburger-dropdown">
+                <a href="index.html" data-i18n="nav.home">INICIO</a>
+                <a href="contacto.html" data-i18n="nav.contact">CONTACTO</a>
+                <a href="productos.html" data-i18n="nav.products">ARTÍCULOS</a>
+                <a href="suscribirte.html" data-i18n="nav.subscribe">SUSCRÍBETE</a>
+            </nav>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">FINSTA<span>TECH</span></a>
+        </div>
+
+        <div class="actions">
+            <div class="socials">
+                <a href="https://www.instagram.com/alessandro_finstaaa" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.12z"/>
+                    </svg>
+                </a>
+            </div>
+            <span class="actions-sep"></span>
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langToggle" onclick="toggleLang()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span id="langCurrent">EN</span>
+                </button>
+                <div class="lang-dropdown-menu" id="langMenu">
+                    <button onclick="setLang('en')" data-lang="en">English</button>
+                    <button onclick="setLang('es')" data-lang="es">Español</button>
+                    <button onclick="setLang('de')" data-lang="de">Deutsch</button>
+                    <button onclick="setLang('it')" data-lang="it">Italiano</button>
+                    <button onclick="setLang('ko')" data-lang="ko">한국어</button>
+                </div>
+            </div>
+            <a href="suscribirte.html" class="sub-btn" data-i18n="nav.subscribe">SUSCRÍBETE</a>
+        </div>
+    </div>
+
+    <div class="ticker-bar">
+        <div class="ticker-track">
+            <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+            <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="contact-section">
+        <div class="contact-inner">
+            <div class="contact-text">
+                <span class="contact-eyebrow" data-i18n="ct.eyebrow">ESTAMOS AQUÍ</span>
+                <h2 class="contact-title" data-i18n-html="ct.title">Habla con <span>nosotros</span></h2>
+                <p class="contact-desc" data-i18n="ct.desc">¿Tienes una pregunta sobre un pedido, un producto o simplemente quieres saludar? Escríbenos y te respondemos pronto.</p>
+                <ul class="contact-details">
+                    <li><span data-i18n="ct.email.lbl">Email</span> soporte@finstatech.com</li>
+                    <li><span>WhatsApp</span> +1 (555) 000-1234</li>
+                    <li><span data-i18n="ct.hours.lbl">Horario</span> <span class="ct-val" data-i18n="ct.hours.val">Lun – Vie, 9am – 6pm</span></li>
+                </ul>
+            </div>
+            <form class="contact-form" onsubmit="handleContact(event);">
+                <input type="text" id="ct-name" data-i18n-ph="ct.name.ph" placeholder="Tu nombre" class="sub-input" required />
+                <input type="email" id="ct-email" data-i18n-ph="ct.email.ph" placeholder="Tu correo electrónico" class="sub-input" required />
+                <input type="text" id="ct-subject" data-i18n-ph="ct.subject.ph" placeholder="Asunto" class="sub-input" />
+                <textarea id="ct-msg" data-i18n-ph="ct.msg.ph" placeholder="Tu mensaje..." class="sub-input contact-textarea" required></textarea>
+                <button type="submit" class="sub-submit" data-i18n="ct.send">ENVIAR MENSAJE</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script src="lang.js"></script>
+<script>
+    async function handleContact(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('.sub-submit');
+
+        const name    = document.getElementById('ct-name').value;
+        const email   = document.getElementById('ct-email').value;
+        const subject = document.getElementById('ct-subject').value;
+        const message = document.getElementById('ct-msg').value;
+
+        btn.textContent = '...';
+        btn.disabled = true;
+
+        try {
+            const res  = await fetch('/api/contact', {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({ name, email, subject, message })
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+                btn.textContent = '✓ MESSAGE SENT';
+                btn.style.background = '#fff';
+                btn.style.color = '#0b0e11';
+                e.target.reset();
+                // Reset button after 3s so they can send another message
+                setTimeout(() => {
+                    btn.textContent = (window.LANG && window.LANG['ct.send']) || 'SEND MESSAGE';
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    btn.disabled = false;
+                }, 3000);
+            } else {
+                btn.textContent = data.error || 'Error';
+                btn.style.background = '#e53e3e';
+                btn.style.color = '#fff';
+                btn.disabled = false;
+            }
+        } catch (err) {
+            btn.textContent = 'Server offline';
+            btn.style.background = '#e53e3e';
+            btn.style.color = '#fff';
+            btn.disabled = false;
+        }
+    }
+</script>
+</body>
+</html>
