@@ -1,6 +1,6 @@
 // Only show once per session
 if (!sessionStorage.getItem('promo_seen')) {
-    setTimeout(() => {
+    setTimeout(() => { // 10 second delay
         const el = document.createElement('div');
         el.id = 'promo-popup';
         el.innerHTML = `
@@ -15,7 +15,7 @@ if (!sessionStorage.getItem('promo_seen')) {
         `;
         document.body.appendChild(el);
         requestAnimationFrame(() => el.classList.add('show'));
-    }, 2000);
+    }, 10000);
 }
 
 function closePromo() {
