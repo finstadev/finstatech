@@ -112,7 +112,8 @@
             <p class="product-detail-desc" id="pd-desc"></p>
             <p class="specs-title">Specifications</p>
             <table class="specs-table" id="pd-specs"></table>
-            <button class="buy-now-btn" onclick="openModal()">Buy Now</button>
+            <button class="buy-now-btn" id="add-cart-btn" onclick="handleAddToCart()" style="margin-bottom:10px">Add to Cart</button>
+            <button class="buy-now-btn" onclick="openModal()" style="background:none;border:1px solid var(--tech-green);color:var(--tech-green)">Buy Now</button>
         </div>
     </main>
 
@@ -131,7 +132,7 @@
 
     <script>
         const PRODUCTS = {
-            1:  { badge: 'Gaming PC', name: 'FINSTA-VOID X1',         price: '$4,299.99', image: 'https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Bundles/CS_9070012-NA-PREMIUM-BUILD-KIT/CS_9070012_NA_CORSAIR_PREMIUM_BUILD_KIT_Artboard01_AA.webp', desc: 'The FINSTA-VOID X1 is built for those who refuse to compromise. Featuring Intel\'s flagship i9-14900K processor paired with the monstrous RTX 4090, this machine handles everything — 4K gaming at 144fps, streaming, and content creation simultaneously.', specs: [['CPU','Intel Core i9-14900K (24 cores, up to 6.0GHz)'],['GPU','NVIDIA GeForce RTX 4090 24GB GDDR6X'],['RAM','64GB DDR5 6000MHz'],['Storage','2TB NVMe Gen4 SSD'],['Cooling','360mm AIO Liquid Cooling'],['PSU','1000W 80+ Platinum'],['OS','Windows 11 Pro']] },
+            1:  { id:1,  badge: 'Gaming PC', name: 'FINSTA-VOID X1',         price: '$4,299.99', image: 'https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Bundles/CS_9070012-NA-PREMIUM-BUILD-KIT/CS_9070012_NA_CORSAIR_PREMIUM_BUILD_KIT_Artboard01_AA.webp', desc: 'The FINSTA-VOID X1 is built for those who refuse to compromise. Featuring Intel\'s flagship i9-14900K processor paired with the monstrous RTX 4090, this machine handles everything — 4K gaming at 144fps, streaming, and content creation simultaneously.', specs: [['CPU','Intel Core i9-14900K (24 cores, up to 6.0GHz)'],['GPU','NVIDIA GeForce RTX 4090 24GB GDDR6X'],['RAM','64GB DDR5 6000MHz'],['Storage','2TB NVMe Gen4 SSD'],['Cooling','360mm AIO Liquid Cooling'],['PSU','1000W 80+ Platinum'],['OS','Windows 11 Pro']] },
             2:  { badge: 'Gaming PC', name: 'FINSTA-BLAZE Pro',        price: '$3,799.99', image: 'https://i5.walmartimages.com/asr/1f838d3d-d126-40d5-8057-45bd5881f261.0eea7b67eff772f0f226ce19fe6ab826.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF', desc: 'AMD\'s powerhouse meets elite performance. The FINSTA-BLAZE Pro pairs the Ryzen 9 7950X3D with the RX 7900 XTX for jaw-dropping 4K performance. Ideal for streamers and competitive players who need both raw power and reliability.', specs: [['CPU','AMD Ryzen 9 7950X3D (16 cores, up to 5.7GHz)'],['GPU','AMD Radeon RX 7900 XTX 24GB'],['RAM','32GB DDR5 6000MHz'],['Storage','2TB NVMe Gen4 SSD'],['Cooling','240mm AIO Liquid Cooling'],['PSU','850W 80+ Gold'],['OS','Windows 11 Pro']] },
             3:  { badge: 'Gaming PC', name: 'FINSTA-CORE V2',          price: '$2,899.99', image: 'https://i5.walmartimages.cl/asr/1665cd2d-3faa-465f-9980-2eeb354257e9.ee1b661ab36adb8ac639f55c6d6847d4.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF', desc: 'The sweet spot between price and performance. The FINSTA-CORE V2 destroys 1440p gaming and handles 4K with ease. A great choice for anyone stepping up their setup without breaking the bank.', specs: [['CPU','Intel Core i7-14700K (20 cores, up to 5.6GHz)'],['GPU','NVIDIA GeForce RTX 4070 Ti 12GB'],['RAM','32GB DDR5 5600MHz'],['Storage','1TB NVMe Gen4 SSD'],['Cooling','240mm AIO Liquid Cooling'],['PSU','750W 80+ Gold'],['OS','Windows 11 Home']] },
             4:  { badge: 'Gaming PC', name: 'FINSTA-STEALTH Mini',     price: '$1,999.99', image: 'https://acdn-us.mitiendanube.com/stores/004/499/130/products/2_mesa-de-trabajo-1-c0fc86a4b2710c82db17462223759739-480-0.webp', desc: 'Small form factor, massive performance. The FINSTA-STEALTH Mini is a compact powerhouse built for small desks and clean setups without sacrificing gaming capability.', specs: [['CPU','AMD Ryzen 7 7800X3D (8 cores, up to 5.0GHz)'],['GPU','NVIDIA GeForce RTX 4060 8GB'],['RAM','16GB DDR5 5200MHz'],['Storage','1TB NVMe Gen4 SSD'],['Form Factor','Mini-ITX'],['PSU','650W 80+ Gold'],['OS','Windows 11 Home']] },
@@ -163,10 +164,15 @@
             document.querySelector('.product-detail').innerHTML = '<p style="color:var(--text-gray);padding:40px">Product not found. <a href="productos.html" style="color:var(--tech-green)">Go back</a></p>';
         }
 
+        function handleAddToCart() {
+            if (!p) return;
+            addToCart({ id: p.id || id, name: p.name, price: parseFloat(p.price.replace(/[^0-9.]/g,'')), image: p.image, badge: p.badge });
+        }
         function openModal()  { document.getElementById('buyModal').classList.add('open'); }
         function closeModal() { document.getElementById('buyModal').classList.remove('open'); }
         document.getElementById('buyModal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
     </script>
+    <script src="cart.js"></script>
     <script src="lang.js"></script>
 </body>
 </html>
