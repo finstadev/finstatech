@@ -1382,3 +1382,31 @@ a.sub-btn {
     pointer-events: none;
 }
 #cart-toast.show { opacity: 1; transform: translateY(0); }
+
+/* ── Footer ────────────────────────────────────────────────────────────────── */
+.finsta-footer { background: var(--dark-gray); border-top: 1px solid #1e2127; margin-top: 80px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; padding: 60px 40px 40px; display: flex; gap: 60px; justify-content: space-between; }
+.footer-brand { max-width: 260px; }
+.footer-logo { font-size: 22px; font-weight: 800; letter-spacing: 2px; color: white; margin-bottom: 14px; }
+.footer-logo span { color: var(--tech-green); }
+.footer-tagline { color: var(--text-gray); font-size: 14px; line-height: 1.7; margin: 0 0 24px; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-socials a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid #2a2d33; border-radius: 6px; color: var(--text-gray); transition: border-color 0.2s, color 0.2s, background 0.2s; }
+.footer-socials a svg { width: 16px; height: 16px; }
+.footer-socials a:hover { border-color: var(--tech-green); color: var(--tech-green); background: rgba(0,223,129,0.06); }
+.footer-links { display: flex; gap: 50px; flex: 1; justify-content: flex-end; }
+.footer-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: white; margin: 0 0 6px; }
+.footer-col a, .footer-col span { font-size: 13px; color: var(--text-gray); text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--tech-green); }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 40px; border-top: 1px solid #1e2127; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom span { font-size: 11px; color: #555; letter-spacing: 0.5px; }
+
+@media (max-width: 768px) {
+    .footer-inner { flex-direction: column; gap: 40px; padding: 40px 20px 30px; }
+    .footer-brand { max-width: 100%; }
+    .footer-links { flex-wrap: wrap; gap: 30px; justify-content: flex-start; }
+}
+@media (max-width: 480px) {
+    .footer-bottom { flex-direction: column; gap: 6px; text-align: center; padding: 16px 20px; }
+}
