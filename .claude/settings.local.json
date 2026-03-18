@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm \"c:/Users/TEJEDURÍA/Desktop/examen practico/backend/package.json\")",
+      "Bash(rm \"c:/Users/TEJEDURÍA/Desktop/examen practico/backend/package-lock.json\")"
+    ]
+  }
+}
