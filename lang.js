@@ -7,6 +7,19 @@ const translations = {
         'nav.products':  'PRODUCTS',
         'nav.subscribe': 'SUBSCRIBE',
 
+        // Footer
+        'ft.nav':        'Navigation',
+        'ft.cats':       'Categories',
+        'ft.contact':    'Contact',
+        'ft.gaming':     'Gaming PCs',
+        'ft.components': 'Components',
+        'ft.peripherals':'Peripherals',
+        'ft.refurb':     'Refurbished',
+        'ft.send':       'Send a message',
+        'ft.hours':      'Mon – Fri, 9am – 6pm',
+        'ft.copy':       '© 2026 FINSTATECH. All rights reserved.',
+        'ft.built':      'Built with passion for tech.',
+
         // Index — Top Picks
         'top.picks':  'Top Picks',
         'top.ram.h':  'High-Speed DDR5 RAM',
@@ -41,6 +54,28 @@ const translations = {
         'prod.pad.p':        'XL mousepad for maximum coverage.',
         'prod.sound.p':      'Clear audio for immersive gaming.',
         'prod.keycaps.p':    'PBT double-shot keycaps for durability.',
+
+        // Producto (detail page)
+        'pd.back':       '← Back to products',
+        'pd.addcart':    'Add to Cart',
+        'pd.buy':        'Buy Now',
+        'pd.notify':     '✓ We\'ll notify you when available',
+        'pd.share':      'Share',
+        'pd.specs':      'Specifications',
+        'pd.related':    'You might also like',
+
+        // Cart
+        'cart.title':    'Your Cart',
+        'cart.empty':    'Your cart is empty.',
+        'cart.browse':   'Browse products →',
+        'cart.remove':   'Remove',
+        'cart.subtotal': 'Subtotal',
+        'cart.shipping': 'Shipping',
+        'cart.free':     'Free',
+        'cart.total':    'Total',
+        'cart.checkout': 'Proceed to Checkout',
+        'cart.added':    '✓ Added to cart',
+        'cart.demo':     'This is a demo store. No real purchases will be made.',
 
         // Contacto
         'ct.eyebrow':    "WE'RE HERE",
@@ -83,12 +118,134 @@ const translations = {
         'sub.success':      '✓ SUBSCRIBED',
     },
 
+    fr: {
+        'nav.menu':      'MENU',
+        'nav.home':      'ACCUEIL',
+        'nav.contact':   'CONTACT',
+        'nav.products':  'PRODUITS',
+        'nav.subscribe': "S'ABONNER",
+
+        'ft.nav':        'Navigation',
+        'ft.cats':       'Catégories',
+        'ft.contact':    'Contact',
+        'ft.gaming':     'PC Gaming',
+        'ft.components': 'Composants',
+        'ft.peripherals':'Périphériques',
+        'ft.refurb':     'Reconditionné',
+        'ft.send':       'Envoyer un message',
+        'ft.hours':      'Lun – Ven, 9h – 18h',
+        'ft.copy':       '© 2026 FINSTATECH. Tous droits réservés.',
+        'ft.built':      'Fait avec passion pour la tech.',
+
+        'top.picks':  'Sélection',
+        'top.ram.h':  'RAM DDR5 Haute Vitesse',
+        'top.ram.p':  'Libérez les performances de nouvelle génération.',
+        'top.ssd.h':  'SSD NVMe Gen4',
+        'top.ssd.p':  'Des temps de chargement ultra-rapides.',
+        'top.kb.h':   'Clavier Mécanique RGB',
+        'top.kb.p':   'Cliquetant, réactif et entièrement personnalisable.',
+
+        'ref.eyebrow':  'RECONDITIONNÉ CERTIFIÉ',
+        'ref.title':    'Offres <span>Reconditionnées</span>',
+        'ref.sub':      'Moitié prix. Mêmes performances. Reconditionné & vérifié.',
+        'ref.badge':    '50% DE RÉDUCTION',
+        'ref.mx3s.p':   'Souris sans fil reconditionnée. Fonctionne sur toutes les surfaces.',
+        'ref.mxk.p':    'Clavier sans fil pleine taille. Silencieux et rétroéclairé.',
+        'ref.cam.p':    'Webcam 1080p 60fps. USB-C, idéale pour télétravail ou streaming.',
+        'ref.zone.p':   'Casque bureau avec micro antibruit. Confort toute la journée.',
+        'ref.mxa.p':    'Souris compacte de voyage. Fonctionne sur toutes surfaces, même le verre.',
+        'ref.mxkm.p':   'Clavier sans fil compact. Silencieux, rétroéclairé et portable.',
+
+        'prod.gaming':       '<span>Gaming</span> PCs',
+        'prod.performance':  'Composants <span>Performance</span>',
+        'prod.essential':    'Périphériques <span>Essentiels</span>',
+        'prod.view':         'Voir Détails',
+        'prod.ryzen.p':      'Le roi des CPU gaming.',
+        'prod.rtx.p':        'Excellent rapport qualité-prix en 1080p/1440p.',
+        'prod.crucial.p':    'Stockage Gen4 NVMe ultra-rapide.',
+        'prod.gskill.p':     '6000MHz CL30 DDR5 pour des performances optimales.',
+        'prod.glide.p':      'Légère, ergonomique et précise.',
+        'prod.pad.p':        'Tapis de souris XL pour une couverture maximale.',
+        'prod.sound.p':      'Audio clair pour un gaming immersif.',
+        'prod.keycaps.p':    'Touches PBT double injection pour la durabilité.',
+
+        'pd.back':       '← Retour aux produits',
+        'pd.addcart':    'Ajouter au panier',
+        'pd.buy':        'Acheter maintenant',
+        'pd.notify':     '✓ Nous vous préviendrons quand disponible',
+        'pd.share':      'Partager',
+        'pd.specs':      'Spécifications',
+        'pd.related':    'Vous aimerez aussi',
+
+        'cart.title':    'Votre Panier',
+        'cart.empty':    'Votre panier est vide.',
+        'cart.browse':   'Voir les produits →',
+        'cart.remove':   'Supprimer',
+        'cart.subtotal': 'Sous-total',
+        'cart.shipping': 'Livraison',
+        'cart.free':     'Gratuite',
+        'cart.total':    'Total',
+        'cart.checkout': 'Passer à la caisse',
+        'cart.added':    '✓ Ajouté au panier',
+        'cart.demo':     'Ceci est une boutique démo. Aucun achat réel ne sera effectué.',
+
+        'ct.eyebrow':    'NOUS SOMMES LÀ',
+        'ct.title':      'Parlez-nous <span>maintenant</span>',
+        'ct.desc':       'Vous avez une question sur une commande, un produit ou juste envie de dire bonjour ? Écrivez-nous et nous répondrons rapidement.',
+        'ct.email.lbl':  'Email',
+        'ct.hours.lbl':  'Horaires',
+        'ct.hours.val':  'Lun – Ven, 9h – 18h',
+        'ct.name.ph':    'Votre nom',
+        'ct.email.ph':   'Votre adresse email',
+        'ct.subject.ph': 'Sujet',
+        'ct.msg.ph':     'Votre message...',
+        'ct.send':       'ENVOYER LE MESSAGE',
+
+        'sub.eyebrow':      'ABONNEMENT GRATUIT',
+        'sub.hero.title':   'Accès <span>exclusif</span>.<br>Avant tout le monde.',
+        'sub.hero.desc':    "Soyez le premier informé des drops, offres reconditionnées et lancements. La communauté tech sans spam.",
+        'sub.perks.title':  'Que recevez-vous ?',
+        'sub.p1.h':         'Offres Exclusives',
+        'sub.p1.p':         "Accès anticipé aux offres de produits neufs et reconditionnés avant leur mise en ligne.",
+        'sub.p2.h':         'Guides & Avis',
+        'sub.p2.p':         'Contenu technique sans remplissage — comparaisons, builds recommandés et plus.',
+        'sub.p3.h':         'Drops Reconditionnés',
+        'sub.p3.p':         'Nous vous avertissons quand du stock reconditionné arrive avant épuisement.',
+        'sub.p4.h':         'Zéro spam. Jamais.',
+        'sub.p4.p':         "Uniquement des emails qui valent la peine. Annulez quand vous voulez, sans drama.",
+        'sub.form.title':   'Rejoindre maintenant',
+        'sub.form.sub':     "C'est gratuit. Ça le sera toujours.",
+        'sub.name.ph':      'Votre nom',
+        'sub.email.ph':     'Votre adresse email',
+        'sub.chk1':         'Offres & promotions',
+        'sub.chk2':         'Nouveaux articles',
+        'sub.chk3':         'Drops reconditionnés',
+        'sub.btn':          "S'ABONNER MAINTENANT",
+        'sub.disclaimer':   "En vous abonnant vous acceptez de recevoir des emails de FINSTATECH. Vous pouvez vous désabonner à tout moment.",
+        'sub.stat1':        'abonnés actifs',
+        'sub.stat2':        'emails par semaine',
+        'sub.stat3':        'spam. garanti.',
+        'sub.success':      '✓ ABONNÉ',
+    },
+
     es: {
         'nav.menu':      'MENÚ',
         'nav.home':      'INICIO',
         'nav.contact':   'CONTACTO',
         'nav.products':  'ARTÍCULOS',
         'nav.subscribe': 'SUSCRÍBETE',
+
+        'ft.nav':        'Navegación',
+        'ft.cats':       'Categorías',
+        'ft.contact':    'Contacto',
+        'ft.gaming':     'PCs Gaming',
+        'ft.components': 'Componentes',
+        'ft.peripherals':'Periféricos',
+        'ft.refurb':     'Reacondicionado',
+        'ft.send':       'Enviar un mensaje',
+        'ft.hours':      'Lun – Vie, 9am – 6pm',
+        'ft.copy':       '© 2026 FINSTATECH. Todos los derechos reservados.',
+        'ft.built':      'Hecho con pasión por la tecnología.',
 
         'top.picks':  'Top Picks',
         'top.ram.h':  'RAM DDR5 de Alta Velocidad',
@@ -121,6 +278,26 @@ const translations = {
         'prod.pad.p':        'Mousepad XL para máxima cobertura.',
         'prod.sound.p':      'Audio claro para gaming inmersivo.',
         'prod.keycaps.p':    'Teclas PBT doble inyección para durabilidad.',
+
+        'pd.back':       '← Volver a productos',
+        'pd.addcart':    'Añadir al carrito',
+        'pd.buy':        'Comprar ahora',
+        'pd.notify':     '✓ Te avisaremos cuando esté disponible',
+        'pd.share':      'Compartir',
+        'pd.specs':      'Especificaciones',
+        'pd.related':    'También te puede gustar',
+
+        'cart.title':    'Tu Carrito',
+        'cart.empty':    'Tu carrito está vacío.',
+        'cart.browse':   'Ver productos →',
+        'cart.remove':   'Eliminar',
+        'cart.subtotal': 'Subtotal',
+        'cart.shipping': 'Envío',
+        'cart.free':     'Gratis',
+        'cart.total':    'Total',
+        'cart.checkout': 'Ir al pago',
+        'cart.added':    '✓ Añadido al carrito',
+        'cart.demo':     'Esta es una tienda demo. No se realizarán compras reales.',
 
         'ct.eyebrow':    'ESTAMOS AQUÍ',
         'ct.title':      'Habla con <span>nosotros</span>',
@@ -168,6 +345,18 @@ const translations = {
         'nav.products':  'ARTIKEL',
         'nav.subscribe': 'ABONNIEREN',
 
+        'ft.nav':        'Navigation',
+        'ft.cats':       'Kategorien',
+        'ft.contact':    'Kontakt',
+        'ft.gaming':     'Gaming PCs',
+        'ft.components': 'Komponenten',
+        'ft.peripherals':'Peripheriegeräte',
+        'ft.refurb':     'Generalüberholt',
+        'ft.send':       'Nachricht senden',
+        'ft.hours':      'Mo – Fr, 9:00 – 18:00 Uhr',
+        'ft.copy':       '© 2026 FINSTATECH. Alle Rechte vorbehalten.',
+        'ft.built':      'Mit Leidenschaft für Tech gebaut.',
+
         'top.picks':  'Top Picks',
         'top.ram.h':  'Hochgeschwindigkeits DDR5 RAM',
         'top.ram.p':  'Entfessle die nächste Generation deines Rigs.',
@@ -199,6 +388,26 @@ const translations = {
         'prod.pad.p':        'XL Mauspad für maximale Abdeckung.',
         'prod.sound.p':      'Klarer Sound für immersives Gaming.',
         'prod.keycaps.p':    'PBT Doppelschuss-Keycaps für Langlebigkeit.',
+
+        'pd.back':       '← Zurück zu Produkten',
+        'pd.addcart':    'In den Warenkorb',
+        'pd.buy':        'Jetzt kaufen',
+        'pd.notify':     '✓ Wir benachrichtigen dich wenn verfügbar',
+        'pd.share':      'Teilen',
+        'pd.specs':      'Spezifikationen',
+        'pd.related':    'Das könnte dir auch gefallen',
+
+        'cart.title':    'Dein Warenkorb',
+        'cart.empty':    'Dein Warenkorb ist leer.',
+        'cart.browse':   'Produkte ansehen →',
+        'cart.remove':   'Entfernen',
+        'cart.subtotal': 'Zwischensumme',
+        'cart.shipping': 'Versand',
+        'cart.free':     'Kostenlos',
+        'cart.total':    'Gesamt',
+        'cart.checkout': 'Zur Kasse',
+        'cart.added':    '✓ In den Warenkorb gelegt',
+        'cart.demo':     'Dies ist ein Demo-Shop. Es werden keine echten Käufe getätigt.',
 
         'ct.eyebrow':    'WIR SIND HIER',
         'ct.title':      'Sprich mit <span>uns</span>',
@@ -246,6 +455,18 @@ const translations = {
         'nav.products':  'ARTICOLI',
         'nav.subscribe': 'ISCRIVITI',
 
+        'ft.nav':        'Navigazione',
+        'ft.cats':       'Categorie',
+        'ft.contact':    'Contatto',
+        'ft.gaming':     'PC Gaming',
+        'ft.components': 'Componenti',
+        'ft.peripherals':'Periferiche',
+        'ft.refurb':     'Ricondizionato',
+        'ft.send':       'Invia un messaggio',
+        'ft.hours':      'Lun – Ven, 9:00 – 18:00',
+        'ft.copy':       '© 2026 FINSTATECH. Tutti i diritti riservati.',
+        'ft.built':      'Fatto con passione per la tech.',
+
         'top.picks':  'Top Picks',
         'top.ram.h':  'RAM DDR5 ad Alta Velocità',
         'top.ram.p':  'Sblocca le prestazioni di nuova generazione.',
@@ -277,6 +498,26 @@ const translations = {
         'prod.pad.p':        'Tappetino XL per la massima copertura.',
         'prod.sound.p':      'Audio nitido per un gaming immersivo.',
         'prod.keycaps.p':    'Tasti PBT double-shot per la durabilità.',
+
+        'pd.back':       '← Torna ai prodotti',
+        'pd.addcart':    'Aggiungi al carrello',
+        'pd.buy':        'Acquista ora',
+        'pd.notify':     '✓ Ti avviseremo quando disponibile',
+        'pd.share':      'Condividi',
+        'pd.specs':      'Specifiche',
+        'pd.related':    'Potrebbe piacerti anche',
+
+        'cart.title':    'Il tuo Carrello',
+        'cart.empty':    'Il tuo carrello è vuoto.',
+        'cart.browse':   'Sfoglia i prodotti →',
+        'cart.remove':   'Rimuovi',
+        'cart.subtotal': 'Subtotale',
+        'cart.shipping': 'Spedizione',
+        'cart.free':     'Gratuita',
+        'cart.total':    'Totale',
+        'cart.checkout': 'Procedi al pagamento',
+        'cart.added':    '✓ Aggiunto al carrello',
+        'cart.demo':     'Questo è un negozio demo. Non verranno effettuati acquisti reali.',
 
         'ct.eyebrow':    'SIAMO QUI',
         'ct.title':      'Parla con <span>noi</span>',
@@ -324,6 +565,18 @@ const translations = {
         'nav.products':  '제품',
         'nav.subscribe': '구독하기',
 
+        'ft.nav':        '내비게이션',
+        'ft.cats':       '카테고리',
+        'ft.contact':    '연락처',
+        'ft.gaming':     '게이밍 PC',
+        'ft.components': '부품',
+        'ft.peripherals':'주변기기',
+        'ft.refurb':     '리퍼브',
+        'ft.send':       '메시지 보내기',
+        'ft.hours':      '월 – 금, 오전 9시 – 오후 6시',
+        'ft.copy':       '© 2026 FINSTATECH. 모든 권리 보유.',
+        'ft.built':      '기술에 대한 열정으로 만들었습니다.',
+
         'top.picks':  '추천 제품',
         'top.ram.h':  '고속 DDR5 RAM',
         'top.ram.p':  '차세대 성능을 경험하세요.',
@@ -355,6 +608,26 @@ const translations = {
         'prod.pad.p':        '최대 커버리지를 위한 XL 마우스패드.',
         'prod.sound.p':      '몰입형 게이밍을 위한 맑은 사운드.',
         'prod.keycaps.p':    '내구성을 위한 PBT 이중 사출 키캡.',
+
+        'pd.back':       '← 제품으로 돌아가기',
+        'pd.addcart':    '장바구니에 추가',
+        'pd.buy':        '지금 구매',
+        'pd.notify':     '✓ 재고 시 알려드리겠습니다',
+        'pd.share':      '공유',
+        'pd.specs':      '사양',
+        'pd.related':    '이런 제품도 좋아하실 수 있어요',
+
+        'cart.title':    '장바구니',
+        'cart.empty':    '장바구니가 비어 있습니다.',
+        'cart.browse':   '제품 보기 →',
+        'cart.remove':   '삭제',
+        'cart.subtotal': '소계',
+        'cart.shipping': '배송',
+        'cart.free':     '무료',
+        'cart.total':    '합계',
+        'cart.checkout': '결제하기',
+        'cart.added':    '✓ 장바구니에 추가됨',
+        'cart.demo':     '이것은 데모 스토어입니다. 실제 구매는 이루어지지 않습니다.',
 
         'ct.eyebrow':    '여기 있습니다',
         'ct.title':      '저희와 <span>연락하세요</span>',
@@ -407,25 +680,21 @@ function applyLang(lang) {
     localStorage.setItem('finstaLang', lang);
     window.LANG = t;
 
-    // textContent
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const v = t[el.getAttribute('data-i18n')];
         if (v !== undefined) el.textContent = v;
     });
 
-    // innerHTML (for elements with nested <span>/<br>)
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const v = t[el.getAttribute('data-i18n-html')];
         if (v !== undefined) el.innerHTML = v;
     });
 
-    // placeholder
     document.querySelectorAll('[data-i18n-ph]').forEach(el => {
         const v = t[el.getAttribute('data-i18n-ph')];
         if (v !== undefined) el.placeholder = v;
     });
 
-    // Update display label and active state
     const cur = document.getElementById('langCurrent');
     if (cur) cur.textContent = lang.toUpperCase();
     document.querySelectorAll('.lang-dropdown-menu button[data-lang]').forEach(btn => {
@@ -434,8 +703,6 @@ function applyLang(lang) {
 
     document.documentElement.lang = lang;
 }
-
-// ─── Dropdown toggle ─────────────────────────────────────────────────────────
 
 function toggleLang() {
     document.getElementById('langMenu').classList.toggle('open');
@@ -446,7 +713,6 @@ function setLang(lang) {
     document.getElementById('langMenu').classList.remove('open');
 }
 
-// Close when clicking outside
 document.addEventListener('click', function (e) {
     const sw = document.querySelector('.lang-switcher');
     if (sw && !sw.contains(e.target)) {
@@ -455,20 +721,15 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// Apply on load + wire up mobile hamburger toggle
 document.addEventListener('DOMContentLoaded', () => {
     applyLang(currentLang);
 
-    // Touch-friendly hamburger — click toggles .menu-open class
     const menuLabel = document.querySelector('.menu-label');
     if (menuLabel) {
         menuLabel.addEventListener('click', (e) => {
-            // Don't toggle when tapping a link inside the dropdown
             if (e.target.closest('.hamburger-dropdown')) return;
             menuLabel.classList.toggle('menu-open');
         });
-
-        // Close menu when tapping outside
         document.addEventListener('click', (e) => {
             if (!menuLabel.contains(e.target)) {
                 menuLabel.classList.remove('menu-open');
