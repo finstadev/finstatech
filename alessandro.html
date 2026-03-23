@@ -1,0 +1,488 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro Finsta — FINSTATECH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Alessandro Page ── */
+        .al-hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .al-hero::before {
+            content: 'FINSTA';
+            position: absolute;
+            font-size: 280px;
+            font-weight: 900;
+            color: rgba(0,223,129,0.03);
+            letter-spacing: -10px;
+            pointer-events: none;
+            user-select: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .al-hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1100px;
+            width: 100%;
+        }
+        .al-photo {
+            flex-shrink: 0;
+            width: 320px;
+            height: 420px;
+            border-radius: 16px;
+            border: 2px solid #2a2d33;
+            background: var(--dark-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #444;
+            font-size: 13px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        .al-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            box-shadow: inset 0 0 60px rgba(0,223,129,0.04);
+        }
+        .al-photo svg { width: 48px; height: 48px; color: #333; }
+        .al-photo-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #333; }
+        .al-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--tech-green);
+            color: #000;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+        .al-info { flex: 1; }
+        .al-eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--tech-green);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .al-name {
+            font-size: clamp(42px, 5vw, 68px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .al-name span { color: var(--tech-green); }
+        .al-handle {
+            font-size: 15px;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        .al-bio {
+            font-size: 16px;
+            color: #ccc;
+            line-height: 1.8;
+            max-width: 480px;
+            margin-bottom: 36px;
+        }
+        .al-bio strong { color: var(--tech-green); }
+        .al-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 36px;
+            padding-bottom: 36px;
+            border-bottom: 1px solid #1e2127;
+        }
+        .al-stat-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+        }
+        .al-stat-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+        .al-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+        .al-cta-main {
+            background: var(--tech-green);
+            color: #000;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+        .al-cta-main:hover { opacity: 0.85; }
+        .al-cta-sec {
+            background: transparent;
+            color: white;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 1px solid #2a2d33;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .al-cta-sec:hover { border-color: var(--tech-green); color: var(--tech-green); }
+
+        /* ── Merch Section ── */
+        .al-merch { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+        .al-section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--tech-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .al-section-title {
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 900;
+            margin-bottom: 48px;
+        }
+        .al-merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .al-merch-card {
+            background: var(--dark-gray);
+            border: 1px solid #2a2d33;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .al-merch-card:hover { border-color: var(--tech-green); transform: translateY(-4px); }
+        .al-merch-img {
+            width: 100%;
+            height: 220px;
+            background: #13161c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            border-bottom: 1px solid #1e2127;
+        }
+        .al-merch-body { padding: 20px; }
+        .al-merch-tag {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--tech-green);
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .al-merch-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .al-merch-desc {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .al-merch-footer { display: flex; align-items: center; justify-content: space-between; }
+        .al-merch-price { font-size: 20px; font-weight: 800; color: var(--tech-green); }
+        .al-merch-btn {
+            background: var(--tech-green);
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: opacity 0.2s;
+        }
+        .al-merch-btn:hover { opacity: 0.85; }
+
+        /* ── Quote ── */
+        .al-quote-section {
+            background: var(--dark-gray);
+            border-top: 1px solid #1e2127;
+            border-bottom: 1px solid #1e2127;
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .al-quote {
+            font-size: clamp(22px, 3vw, 36px);
+            font-weight: 800;
+            max-width: 700px;
+            margin: 0 auto 16px;
+            line-height: 1.4;
+        }
+        .al-quote span { color: var(--tech-green); }
+        .al-quote-attr { font-size: 12px; color: var(--text-gray); letter-spacing: 2px; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .al-hero-inner { flex-direction: column; gap: 40px; }
+            .al-photo { width: 100%; height: 300px; }
+            .al-hero { padding: 60px 20px; }
+            .al-merch { padding: 60px 20px; }
+            .al-stats { gap: 24px; }
+        }
+        @media (max-width: 480px) {
+            .al-merch-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .al-merch-img { height: 140px; font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="finsta-header">
+    <div class="top-bar">
+        <div class="menu-label">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <span class="text-menu" data-i18n="nav.menu">MENÚ</span>
+            <nav class="hamburger-dropdown">
+                <a href="index.html" data-i18n="nav.home">INICIO</a>
+                <a href="contacto.html" data-i18n="nav.contact">CONTACTO</a>
+                <a href="productos.html" data-i18n="nav.products">ARTÍCULOS</a>
+                <a href="suscribirte.html" data-i18n="nav.subscribe">SUSCRÍBETE</a>
+                <a href="alessandro.html">ALESSANDRO</a>
+            </nav>
+        </div>
+
+        <div class="logo">
+            <a href="index.html">FINSTA<span>TECH</span></a>
+        </div>
+
+        <div class="actions">
+            <div class="lang-switcher">
+                <button class="lang-btn" id="langToggle" onclick="toggleLang()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span id="langCurrent">EN</span>
+                </button>
+                <div class="lang-dropdown-menu" id="langMenu">
+                    <button onclick="setLang('en')" data-lang="en">English</button>
+                    <button onclick="setLang('es')" data-lang="es">Español</button>
+                    <button onclick="setLang('de')" data-lang="de">Deutsch</button>
+                    <button onclick="setLang('it')" data-lang="it">Italiano</button>
+                    <button onclick="setLang('ko')" data-lang="ko">한국어</button>
+                </div>
+            </div>
+            <a href="suscribirte.html" class="sub-btn">SUBSCRIBE</a>
+        </div>
+    </div>
+</header>
+
+<div class="ticker-bar">
+    <div class="ticker-track">
+        <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+        <span>⚡ TOP PICKS AT 50% OFF TODAY &nbsp;·&nbsp; CERTIFIED REFURBISHED — VERIFIED QUALITY &nbsp;·&nbsp; NEW DROPS EVERY WEEK &nbsp;·&nbsp; EXCLUSIVE DEALS FOR MEMBERS ONLY &nbsp;·&nbsp; BEST GAMING GEAR FOR LESS &nbsp;·&nbsp; FINSTATECH — YOUR TECH DESTINATION &nbsp;·&nbsp; FREE SHIPPING ON ORDERS OVER $50 &nbsp;·&nbsp; HOT DEALS. COOL GEAR. ALWAYS. &nbsp;·&nbsp;</span>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="al-hero">
+    <div class="al-hero-inner">
+        <div class="al-photo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <span class="al-photo-label">Photo coming soon</span>
+            <span class="al-badge">THE BOSS</span>
+        </div>
+        <div class="al-info">
+            <div class="al-eyebrow">Founder & CEO</div>
+            <h1 class="al-name">Alessandro<br><span>Finsta.</span></h1>
+            <div class="al-handle">@alessandro_finstaaa</div>
+            <p class="al-bio">
+                Tech enthusiast. Deal hunter. Professional <strong>overclocker</strong> of both CPUs and vibes.
+                Alessandro built FINSTATECH from the ground up with one mission: get the best gear into the hands of people who actually care about it — without paying stupid prices.
+                <br><br>
+                When he's not finding ridiculous deals, he's probably gaming, and yes — he sells his bath water. <strong>Don't ask why. Just buy it.</strong>
+            </p>
+            <div class="al-stats">
+                <div>
+                    <div class="al-stat-num">500+</div>
+                    <div class="al-stat-label">Deals closed</div>
+                </div>
+                <div>
+                    <div class="al-stat-num">3</div>
+                    <div class="al-stat-label">Bath water jars sold</div>
+                </div>
+                <div>
+                    <div class="al-stat-num">∞</div>
+                    <div class="al-stat-label">Drip level</div>
+                </div>
+            </div>
+            <div class="al-ctas">
+                <a href="productos.html" class="al-cta-main">Shop the gear →</a>
+                <a href="https://www.instagram.com/alessandro_finstaaa" target="_blank" rel="noopener" class="al-cta-sec">Follow @finstaaa</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- QUOTE -->
+<div class="al-quote-section">
+    <div class="al-quote">"I don't sell products. I sell <span>upgrades to your life.</span> The bath water is just a bonus."</div>
+    <div class="al-quote-attr">— Alessandro Finsta, probably</div>
+</div>
+
+<!-- MERCH -->
+<section class="al-merch">
+    <div class="al-section-label">Exclusive Drops</div>
+    <h2 class="al-section-title">Alessandro's Personal Collection</h2>
+    <div class="al-merch-grid">
+
+        <div class="al-merch-card">
+            <div class="al-merch-img">👕</div>
+            <div class="al-merch-body">
+                <div class="al-merch-tag">Merch</div>
+                <div class="al-merch-name">FINSTA Oversized Hoodie</div>
+                <div class="al-merch-desc">The hoodie Alessandro wears during every stream. Heavyweight cotton, green logo, maximum drip.</div>
+                <div class="al-merch-footer">
+                    <span class="al-merch-price">$59.99</span>
+                    <button class="al-merch-btn" onclick="addedToCart(this)">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="al-merch-card">
+            <div class="al-merch-img">🧴</div>
+            <div class="al-merch-body">
+                <div class="al-merch-tag">Limited Edition</div>
+                <div class="al-merch-name">Alessandro's Bath Water</div>
+                <div class="al-merch-desc">You know what it is. Bottled. Certified. Slightly cursed. Only 10 jars left. No refunds.</div>
+                <div class="al-merch-footer">
+                    <span class="al-merch-price">$29.99</span>
+                    <button class="al-merch-btn" onclick="addedToCart(this)">I want it</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="al-merch-card">
+            <div class="al-merch-img">🧢</div>
+            <div class="al-merch-body">
+                <div class="al-merch-tag">Merch</div>
+                <div class="al-merch-name">FINSTATECH Dad Hat</div>
+                <div class="al-merch-desc">Low profile, green embroidered logo, adjustable strap. Wear it like you own a tech empire. Because he does.</div>
+                <div class="al-merch-footer">
+                    <span class="al-merch-price">$34.99</span>
+                    <button class="al-merch-btn" onclick="addedToCart(this)">Add to cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="al-merch-card">
+            <div class="al-merch-img">🫧</div>
+            <div class="al-merch-body">
+                <div class="al-merch-tag">Mystery Drop</div>
+                <div class="al-merch-name">The Alessandro Bundle</div>
+                <div class="al-merch-desc">Hoodie + hat + one jar of bath water. You know you want it. Don't overthink it.</div>
+                <div class="al-merch-footer">
+                    <span class="al-merch-price">$99.99</span>
+                    <button class="al-merch-btn" onclick="addedToCart(this)">Bundle me</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="finsta-footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-logo">FINSTA<span>TECH</span></div>
+            <p class="footer-tagline">Your tech destination.<br>Hot deals. Cool gear. Always.</p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/alessandro_finstaaa" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="#" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.12z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <a href="index.html">Home</a>
+                <a href="productos.html">Products</a>
+                <a href="contacto.html">Contact</a>
+                <a href="suscribirte.html">Subscribe</a>
+                <a href="alessandro.html">Alessandro</a>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <a href="productos.html">Gaming PCs</a>
+                <a href="productos.html">Components</a>
+                <a href="productos.html">Peripherals</a>
+                <a href="productos.html">Refurbished</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <a href="mailto:info@finstatech.com">info@finstatech.com</a>
+                <a href="contacto.html">Send a message</a>
+                <span>Mon – Fri, 9am – 6pm</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 FINSTATECH. All rights reserved.</span>
+        <span>Built with passion for tech.</span>
+    </div>
+</footer>
+
+<script src="lang.js"></script>
+<script src="cart.js"></script>
+<script src="popup.js"></script>
+<script>
+function addedToCart(btn) {
+    const original = btn.textContent;
+    btn.textContent = '✓ Added!';
+    btn.style.background = '#fff';
+    btn.style.color = '#000';
+    setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        btn.style.color = '';
+    }, 1500);
+}
+</script>
+</body>
+</html>
